@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  @apply w-screen h-screen;
+}
+
+#app {
+  @apply w-full h-full rounded-lg dark:bg-gradient-to-r dark:from-[#0f2027] dark:via-[#203a43] dark:to-[#2c5364] bg-gradient-to-r from-[#7F7FD5] via-[#86A8E7] to-[#91EAE4] overflow-hidden;
+}
