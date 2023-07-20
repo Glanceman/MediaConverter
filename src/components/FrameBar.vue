@@ -1,7 +1,7 @@
 <template>
   <div
     data-tauri-drag-region
-    class="framebar h-fit flex justify-center self-stretch items-center opacity-70 bg-slate-900 backdrop-blur-sm;"
+    class="framebar h-fit flex justify-center self-stretch items-center  bg-black backdrop-blur-sm;"
   >
     <div data-tauri-drag-region class="flex px-5 flex-row content-center grow">
       <div class="justify-center text-white font-bold text-sm">
