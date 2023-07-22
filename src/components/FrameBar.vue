@@ -49,7 +49,6 @@
 <script lang="ts">
 import { defineComponent, ref, Ref } from "vue";
 import { appWindow } from "@tauri-apps/api/window";
-import { app } from "@tauri-apps/api";
 export default defineComponent({
   props: {
     name: {
