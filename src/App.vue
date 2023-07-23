@@ -6,7 +6,7 @@ import MenuBar from "./components/MenuBar.vue";
 <template>
   <FrameBar name="Media Converter" :b-reize-window="false"/>
   <div class="flex h-full">
-    <div class=" min-w-[10rem] w-[10rem] h-full bg-slate-200">
+    <div class=" min-w-[10rem] w-[10rem] h-full bg-gray-900 ">
      <MenuBar/>
     </div>
     <RouterView class="w-full" />
