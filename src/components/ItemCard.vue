@@ -5,7 +5,7 @@
     <img class="h-[80%] aspect-video" />
     <div class="grow flex flex-col">
       <div class="font-bold">{{ title }}</div>
-      <div class="flex gap-2">
+      <div class="flex flex-row gap-2 justify-evenly">
         <div>
           <div>Duartion: {{ duration }} s</div>
           <div>Size: {{ size }} GB</div>
@@ -20,17 +20,23 @@
         <div>
           <div>
             Resolution:
-            <select class="w-24 text-black"></select>
+            <select class="w-24 text-black">
+              <option :value="resolution.value" v-for="resolution in correspondResolution">
+                {{ resolution.name }}
+              </option>
+            </select>
           </div>
           <div>
             Format:
-            <select class="w-24 text-black"></select>
+            <select v-model="outputFormat" class="w-24 text-black">
+              <option :value="format" v-for="format in videoFormatArr">
+                {{ format }}
+              </option>
+            </select>
           </div>
         </div>
         <div>
-            <Button_2>
-                Convert
-            </Button_2>
+          <Button_2> Convert </Button_2>
         </div>
       </div>
     </div>
@@ -39,6 +45,8 @@
 
 <script lang="ts">
 import Button_2 from "./Shared/Buttons/Button_2.vue";
+import { videoFormatArr, videoParamList } from "../constant/constant";
+import { Ref, ref, watch } from "vue";
 export default {
   props: {
     title: {
@@ -61,12 +69,29 @@ export default {
       type: String,
       default: "format",
     },
+    path: {
+      type: String,
+    },
   },
   components: {
     Button_2,
   },
-  setup(props, ctx) {},
+  setup(props, ctx) {
+    let outputFormat: Ref<String> = ref("mp4");
+    let outputResolution: Ref<String> = ref("");
+    let correspondResolution = ref();
+    watch(outputFormat, (oldVal, newVal) => {
+      correspondResolution.value = videoParamList.find((obj) => {
+        return obj.name === newVal;
+      })?.children;
+    });
+
+    return {
+      videoFormatArr,
+      videoParamList,
+      outputFormat,
+      correspondResolution,
+    };
+  },
 };
 </script>
-
-<style scoped></style>
